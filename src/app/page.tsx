@@ -5,6 +5,8 @@ import { Scene2 } from "@/components/welcome";
 import Scene3 from "@/components/starring-you";
 import SoundGate from "@/components/sound-gate";
 import Header from "@/components/header";
+import { Manifesto } from "@/components/manifesto";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   const [soundEnabled, setSoundEnabled] = useState<boolean | null>(null);
@@ -22,10 +24,11 @@ export default function Home() {
       <Hero />
       <Scene2 />
       <Scene3 />
-
-      <section className="h-screen bg-[var(--bone)] flex items-center justify-center text-[var(--charcoal)] font-HaasGrotDisp2">
+      <Manifesto />
+      <Footer />
+      {/* <section className="h-screen bg-[var(--bone)] flex items-center justify-center text-[var(--charcoal)] font-HaasGrotDisp2">
         <p>Next Chapter — Coming Soon</p>
-      </section>
+      </section> */}
     </div>
   );
 }

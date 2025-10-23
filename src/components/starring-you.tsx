@@ -178,7 +178,7 @@ export default function Scene3() {
           {cardContent.map((card, i) => (
             <div
               key={i}
-              ref={(el) => (cardsRef.current[i] = el)}
+              ref={(el) => {cardsRef.current[i] = el}}
               className="absolute w-[85vw] sm:w-[320px] max-w-[400px] h-[400px] flex flex-col justify-center p-6 text-center opacity-0"
             >
               <h3 className="font-HaasGrotDisp2 text-[var(--bone)] text-[clamp(25px,6vw,40px)] mb-3 tracking-tighter leading-none">
@@ -219,6 +219,9 @@ export default function Scene3() {
       {/* ✦ MODALS */}
       {showFormModal && (
         <FormModal
+          title="Stay Close."
+          subtitle="Be first to feel what comes next."
+          ctaText="Stay close"
           onClose={() => setShowFormModal(false)}
           onJoin={() => {
             setShowFormModal(false);
@@ -228,7 +231,7 @@ export default function Scene3() {
       )}
 
       {showWelcomeModal && (
-        <WelcomeModal onClose={() => setShowWelcomeModal(false)} />
+        <WelcomeModal onClose={() => setShowWelcomeModal(false)} title="See you at the next drop!" subtitle="You’re in." />
       )}
     </div>
   );

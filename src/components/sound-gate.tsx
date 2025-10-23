@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Draggable from "gsap/Draggable";
 import NoiseOverlay from "./noise";
@@ -17,16 +17,34 @@ export default function SoundGate({
   const starRef = useRef<SVGSVGElement>(null);
   const [soundEnabled, setSoundEnabled] = useState(false);
 
+  /** ✦ Fade out and continue */
+  const confirmChoice = useCallback(
+    (enable: boolean) => {
+      setSoundEnabled(enable);
+      gsap.to(overlayRef.current, {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.inOut",
+        onComplete: () => {
+          setIsOpen(false);
+          onContinue(enable);
+        },
+      });
+    },
+    [onContinue]
+  );
+
   useEffect(() => {
-    if (!knobRef.current) return;
+    const knobElement = knobRef.current;
+    if (!knobElement) return;
 
     const maxDrag = 100; // how far to drag right to trigger ON
-    const knob = knobRef.current;
+
 
     // Reset to center
-    gsap.set(knob, { x: 0 });
+    gsap.set(knobElement, { x: 0 });
 
-    Draggable.create(knob, {
+    const [draggable] = Draggable.create(knobElement, {
       type: "x",
       bounds: { minX: 0, maxX: maxDrag },
       inertia: true,
@@ -35,7 +53,7 @@ export default function SoundGate({
         const active = progress > 0.5;
         setSoundEnabled(active);
 
-        gsap.to(knob, {
+        gsap.to(knobElement, {
           borderColor: active ? "var(--cherry)" : "var(--bone)",
           rotate: active ? 45 : 0,
           duration: 0.2,
@@ -44,7 +62,7 @@ export default function SoundGate({
       onRelease() {
         if (this.x > maxDrag / 2) {
           // Swiped right → Enable sound
-          gsap.to(knob, {
+         gsap.to(knobElement, {
             x: maxDrag,
             rotate: 45,
             duration: 0.3,
@@ -53,7 +71,7 @@ export default function SoundGate({
           confirmChoice(true);
         } else {
           // Snap back → Disable sound
-          gsap.to(knob, {
+          gsap.to(knobElement, {
             x: 0,
             rotate: 0,
             duration: 0.3,
@@ -63,21 +81,10 @@ export default function SoundGate({
         }
       },
     });
-  }, []);
-
-  /** ✦ Fade out and continue */
-  const confirmChoice = (enable: boolean) => {
-    setSoundEnabled(enable);
-    gsap.to(overlayRef.current, {
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.inOut",
-      onComplete: () => {
-        setIsOpen(false);
-        onContinue(enable);
-      },
-    });
-  };
+  return () => {
+      draggable?.kill();
+    };
+  }, [confirmChoice]);
 
   if (!isOpen) return null;
 
@@ -123,8 +130,8 @@ export default function SoundGate({
                   ease: "power2.inOut",
                 });
               }}
-              className="w-[60px] h-[60px] border-2 border-[var(--bone)] rounded-full 
-              cursor-pointer flex items-center justify-center 
+              className="w-[60px] h-[60px] border-2 border-[var(--bone)] rounded-full
+              cursor-pointer flex items-center justify-center
               text-[var(--bone)] text-2xl font-bold select-none shadow-lg"
             >
               →
@@ -137,7 +144,9 @@ export default function SoundGate({
           </div>
         </div>
 
-        <div className="absolute bottom-25 text-[16px] text-[var(--bone)] opacity-50 font-HaasGrotDisp2"> Tap/Drag to choose your vibe </div>
+        <div className="absolute bottom-25 text-[16px] text-[var(--bone)] opacity-50 font-HaasGrotDisp2">
+          Tap/Drag to choose your vibe
+        </div>
       </div>
     </>
   );

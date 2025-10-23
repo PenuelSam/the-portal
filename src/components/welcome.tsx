@@ -1,11 +1,10 @@
 "use client";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FormModal from "./form-modal";
 import WelcomeModal from "./welcome-modal";
-import { GoContainer } from "react-icons/go";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -70,19 +69,19 @@ export const Scene2 = () => {
           /Intro
         </h1>
 
-        <p className="fade-scroll text-[clamp(25px,6vw,56px)] font-HaasGrotDisp text-[#333333e8] tracking-[-0.02em] leading-[1] ">
+        <p className="fade-scroll text-[clamp(25px,6vw,56px)] font-HaasGrotDisp2 text-[#333333e8] tracking-[-0.05em] leading-[1.1] ">
           We’re not just a fashion label. We’re a collective of emotion, youth, and freedom.
         </p>
 
         <div className="border w-full border-[var(--cherry)] my-8 opacity-[0.2]" />
 
         <div className="flex flex-col gap-2">
-          <p className="text-[clamp(16px,2vw,18px)] text-[var(--charcoal)] font-HaasGrotDisp leading-[1.6] opacity-70 max-w-[640px]">
+          <p className="text-[16px] text-[var(--charcoal)] font-HaasGrotDisp2 leading-[1.2] opacity-70 max-w-[640px] ">
             We make clothing and stories for the dreamers, the lovers, and the ones who never fit neatly into boxes.
             For people who feel deeply, live loudly, and move through life like art.
           </p>
 
-          <p className="text-[clamp(16px,2vw,18px)] text-[var(--charcoal)] font-HaasGrotDisp leading-[1.6] opacity-70 max-w-[640px]">
+          <p className="text-[16px] text-[var(--charcoal)] font-HaasGrotDisp2 leading-[1.2] opacity-70 max-w-[640px] ">
             Every piece we create is a small reminder: freedom still looks best when it’s lived.
           </p>
         </div>

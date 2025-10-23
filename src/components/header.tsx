@@ -43,8 +43,8 @@ const Header = ({ soundEnabled }: HeaderProps) => {
 
       {/* Center Logo */}
       <div>
-        <p className="font-bold text-[#8a1c1c] capitalize text-[25px]">
-          Saint <span className="text-[#8a1c1c]">Moriartyy</span>
+        <p className="font-HaasGrotDisp2 text-[var(--bone)] capitalize text-[25px] tracking-tighter leading-none scale-y-[1] inline-block">
+          Saint Moriartyy
         </p>
       </div>
 
@@ -63,7 +63,7 @@ const Header = ({ soundEnabled }: HeaderProps) => {
         ))}
 
         {/* Placeholder for now — just leave src blank or add your file later */}
-        <audio ref={audioRef} src="" loop />
+        <audio ref={audioRef} src="/sound.mp3" loop />
       </div>
     </nav>
   );
