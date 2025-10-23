@@ -38,12 +38,12 @@ const Header = ({ soundEnabled }: HeaderProps) => {
     <nav className="fixed top-0 left-0 w-full h-16 backdrop-blur-md font-HaasGrotDisp2 flex items-center justify-between px-6 z-50">
       {/* Left */}
       <div>
-        <p className="text-[var(--bone)]">Menu</p>
+        <p className="bg-[var(--bone)] w-4 h-4 rounded-full"></p>
       </div>
 
       {/* Center Logo */}
       <div>
-        <p className="font-HaasGrotDisp2 text-[var(--bone)] capitalize text-[25px] tracking-tighter leading-none scale-y-[1] inline-block">
+        <p className="font-HaasGrotDisp text-[var(--bone)] capitalize text-[25px] tracking-tighter leading-none scale-y-[1] inline-block">
           Saint Moriartyy
         </p>
       </div>

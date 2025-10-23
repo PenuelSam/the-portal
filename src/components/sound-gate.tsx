@@ -40,8 +40,6 @@ export default function SoundGate({
 
     const maxDrag = 100; // how far to drag right to trigger ON
 
-
-    // Reset to center
     gsap.set(knobElement, { x: 0 });
 
     const [draggable] = Draggable.create(knobElement, {
@@ -61,8 +59,7 @@ export default function SoundGate({
       },
       onRelease() {
         if (this.x > maxDrag / 2) {
-          // Swiped right → Enable sound
-         gsap.to(knobElement, {
+          gsap.to(knobElement, {
             x: maxDrag,
             rotate: 45,
             duration: 0.3,
@@ -70,7 +67,6 @@ export default function SoundGate({
           });
           confirmChoice(true);
         } else {
-          // Snap back → Disable sound
           gsap.to(knobElement, {
             x: 0,
             rotate: 0,
@@ -81,10 +77,25 @@ export default function SoundGate({
         }
       },
     });
-  return () => {
+
+    return () => {
       draggable?.kill();
     };
   }, [confirmChoice]);
+
+  // ✦ Optional animated glow (soft breathing effect)
+  useEffect(() => {
+    const glow = document.querySelector(".glow-circle");
+    if (!glow) return;
+    gsap.to(glow, {
+      scale: 1.1,
+      opacity: 0.35,
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+  }, []);
 
   if (!isOpen) return null;
 
@@ -109,6 +120,24 @@ export default function SoundGate({
 
         {/* ✦ Center Content */}
         <div className="relative z-[10] flex flex-col items-center justify-center text-center px-6 mt-10">
+          {/* Subtle Circular Glow */}
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ zIndex: -1 }}
+          >
+            <div
+              className="glow-circle"
+              style={{
+                width: "320px",
+                height: "320px",
+                background: "#F5F3EE",
+                borderRadius: "50%",
+                filter: "blur(120px)",
+                opacity: 0.20,
+              }}
+            />
+          </div>
+
           <p className="text-[var(--bone)] font-HaasGrotDisp2 text-[clamp(14px,5vw,16px)] opacity-70 italic">
             Starring You
           </p>
@@ -116,12 +145,11 @@ export default function SoundGate({
             A Digital Gateway into the Saint Moriartyy World
           </h1>
 
-          {/* ✦ Knob Only */}
+          {/* ✦ Knob */}
           <div className="flex flex-col items-center gap-8">
             <div
               ref={knobRef}
               onClick={() => {
-                // Tap = OFF
                 setSoundEnabled(false);
                 gsap.to(knobRef.current, {
                   x: 0,
@@ -130,9 +158,7 @@ export default function SoundGate({
                   ease: "power2.inOut",
                 });
               }}
-              className="w-[60px] h-[60px] border-2 border-[var(--bone)] rounded-full
-              cursor-pointer flex items-center justify-center
-              text-[var(--bone)] text-2xl font-bold select-none shadow-lg"
+              className="w-[60px] h-[60px] border-2 border-[var(--bone)] rounded-full cursor-pointer flex items-center justify-center text-[var(--bone)] text-2xl font-bold select-none shadow-lg"
             >
               →
             </div>
@@ -144,8 +170,9 @@ export default function SoundGate({
           </div>
         </div>
 
-        <div className="absolute bottom-25 text-[16px] text-[var(--bone)] opacity-50 font-HaasGrotDisp2">
-          Tap/Drag to choose your vibe
+        <div className="absolute bottom-25 text-[16px] flex flex-col items-center text-[var(--bone)] opacity-50 font-HaasGrotDisp2">
+          <p>Swipe arrow to enable sound</p> 
+          <p>Tap to open without sound</p> 
         </div>
       </div>
     </>

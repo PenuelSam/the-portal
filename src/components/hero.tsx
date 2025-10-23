@@ -53,7 +53,7 @@ export default function HeroIntroDirected() {
       .to(".title-1", { opacity: 1, duration: 1.2, ease: "power2.out" }, "+=1");
 
     /** ✦ LOOPING TITLES */
-    const titles = [".title-1", ".title-2", ".title-3"];
+    const titles = [".title-1", ".title-2", ".title-3", ".title-4"];
     const loopTl = gsap.timeline({ repeat: -1, paused: true });
     titles.forEach((cls) => {
       loopTl
@@ -226,19 +226,23 @@ export default function HeroIntroDirected() {
 
       {/* ✦ Text Content */}
       <div className="w-full text-block relative z-10 text-center select-none text-[var(--charcoal)]">
-        <h1 className="starring font-HaasGrotDisp2 font-bold  capitalize opacity-0 text-[var(--bone)] text-[clamp(16px,8vw,20px)] tracking-tighter leading-none scale-y-[1] inline-block mt-10">
+        <h1 className="starring font-HaasGrotDisp2 font-bold  capitalize opacity-0 text-[var(--bone)] text-[clamp(18px,8vw,25px)] italic tracking-tighter leading-none scale-y-[1] inline-block mt-10">
          Starring You
         </h1>
 
-        <h1 className="title-1 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] opacity-0 lowercase w-full">
+        <h1 className="title-1 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] tracking-tighter opacity-0 lowercase w-full">
           The Midnight Club
         </h1>
-        <h1 className="title-2 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] opacity-0 lowercase w-full">
+        <h1 className="title-2 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] tracking-tighter opacity-0 lowercase w-full">
           Saint in Love
         </h1>
-        <h1 className="title-3 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] opacity-0 lowercase w-full">
+        <h1 className="title-3 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] tracking-tighter opacity-0 lowercase w-full">
           Forever Summer
         </h1>
+        <h1 className="title-4 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] tracking-tighter opacity-0 lowercase w-full">
+         The Dinner Club
+        </h1>
+        
       </div>
     </section>
   );
