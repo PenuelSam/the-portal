@@ -40,11 +40,11 @@ export const Footer = () => {
         }}
       /> */}
      
-        <p className="split-lines text-[18px] font-HaasGrotDisp2 text-[var(--bone)] absolute top-20 leading-[1.1]">
-          Nothing real ever dies.
+        <p className="split-lines text-[18px] font-HaasGrotDisp2 text-[var(--bone)] absolute bottom-13 leading-[1.1]">
+          starring you © 2025 
         </p>
 
-<h1 className="split-lines absolute bottom-5 font-HaasGrotDisp2 font-bold text-[50px] text-center w-full capitalize text-[var(--bone)] tracking-tighter leading-none scale-y-[1] inline-block z-[10]">
+<h1 className="split-lines absolute top-20  text-center w-full z-[10] font-HaasGrotDisp text-[var(--bone)] capitalize text-[50px] tracking-tighter leading-none scale-y-[1] inline-block">
           Saint Moriartyy
         </h1>
       

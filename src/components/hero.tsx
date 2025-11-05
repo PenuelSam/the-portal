@@ -225,22 +225,26 @@ export default function HeroIntroDirected() {
       </svg>
 
       {/* ✦ Text Content */}
-      <div className="w-full text-block relative z-10 text-center select-none text-[var(--charcoal)]">
-        <h1 className="starring font-HaasGrotDisp2 font-bold  capitalize opacity-0 text-[var(--bone)] text-[clamp(18px,8vw,25px)] italic tracking-tighter leading-none scale-y-[1] inline-block mt-10">
-         Starring You
+      <div className="w-full text-block  relative z-10 text-center select-none text-[var(--charcoal)]">
+
+        <h1 className="starring font-HaasGrotDisp2 font-bold  capitalize opacity-0 text-[var(--bone)] text-[clamp(18px,8vw,20px)] italic tracking-tighter leading-none scale-y-[1] inline-block ">
+        We believe in
         </h1>
 
-        <h1 className="title-1 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] tracking-tighter opacity-0 lowercase w-full">
-          The Midnight Club
+        <h1 className="title-1 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(23px,8vw,30px)] leading-[40px]  w-[90%] text-center font-light opacity-0 lowercase ">
+          love that’s loud
         </h1>
-        <h1 className="title-2 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] tracking-tighter opacity-0 lowercase w-full">
-          Saint in Love
+
+        <h1 className="title-2 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(23px,8vw,30px)] leading-[40px]  w-[90%] text-center font-light opacity-0 lowercase ">
+          nights that don’t end
         </h1>
-        <h1 className="title-3 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] tracking-tighter opacity-0 lowercase w-full">
-          Forever Summer
+
+        <h1 className="title-3 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(23px,8vw,30px)] leading-[40px]  w-[90%] text-center font-light opacity-0 lowercase ">
+          friends that turn into family
         </h1>
-        <h1 className="title-4 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(45px,3vw,58px)] tracking-tighter opacity-0 lowercase w-full">
-         The Dinner Club
+
+        <h1 className="title-4 absolute left-1/2 -translate-x-1/2 text-[var(--bone)] font-HaasGrotDisp text-[clamp(23px,8vw,30px)] font-light opacity-0 lowercase w-[90%]">
+         Freedom.
         </h1>
         
       </div>

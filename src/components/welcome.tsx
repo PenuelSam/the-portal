@@ -65,23 +65,23 @@ export const Scene2 = () => {
 
       {/* Content */}
       <div className="relative max-w-[720px] text-left z-10">
-        <h1 className="text-[clamp(24px,6vw,64px)] font-HaasGrotDisp2 text-[var(--cherry)] mb-8 leading-[1.1]">
+        {/* <h1 className="text-[clamp(24px,6vw,64px)] font-HaasGrotDisp2 text-[var(--cherry)] mb-8 leading-[1.1]">
           /Intro
-        </h1>
+        </h1> */}
 
-        <p className="fade-scroll text-[clamp(25px,6vw,56px)] font-HaasGrotDisp2 text-[#333333e8] tracking-[-0.05em] leading-[1.1] ">
-          We’re not just a fashion label. We’re a collective of emotion, youth, and freedom.
+        <p className="fade-scroll text-[clamp(25px,6vw,56px)] font-HaasGrotDisp text-[#333333e8] tracking-[-0.02em] leading-[1.1] ">
+          We believe in living with <span className="text-[var(--cherry)]">feeling.</span> In making memories that last longer than the moment.
         </p>
 
         <div className="border w-full border-[var(--cherry)] my-8 opacity-[0.2]" />
 
         <div className="flex flex-col gap-2">
-          <p className="text-[16px] text-[var(--charcoal)] font-HaasGrotDisp2 leading-[1.2] opacity-70 max-w-[640px] ">
+          <p className="text-[16px] text-[var(--charcoal)] font-HaasGrotDisp leading-[1.2] opacity-50 max-w-[640px] tracking-wide">
             We make clothing and stories for the dreamers, the lovers, and the ones who never fit neatly into boxes.
             For people who feel deeply, live loudly, and move through life like art.
           </p>
 
-          <p className="text-[16px] text-[var(--charcoal)] font-HaasGrotDisp2 leading-[1.2] opacity-70 max-w-[640px] ">
+          <p className="text-[16px] text-[var(--charcoal)] font-HaasGrotDisp leading-[1.2] opacity-50 max-w-[640px] tracking-wide">
             Every piece we create is a small reminder: freedom still looks best when it’s lived.
           </p>
         </div>
@@ -90,12 +90,10 @@ export const Scene2 = () => {
         <div className="mt-10">
           <button
             onClick={handleClick}
-            className="relative px-4 py-3 rounded-full bg-[var(--cherry)] text-[var(--bone)] text-sm tracking-[0.05em] flex items-center justify-center overflow-hidden"
+            className="relative px-4 py-3 rounded-md bg-[var(--cherry)] text-[var(--bone)] text-sm tracking-[0.05em] flex items-center justify-center overflow-hidden "
           >
             <div ref={textWrapperRef} className="flex items-center gap-3 transition-[gap] font-HaasGrotDisp">
-              <span>Come</span>
-              <div ref={lineRef} className="w-5 h-[1px] bg-[var(--bone)] "></div>
-              <span>Closer</span>
+              <span>Join our community</span>
             </div>
           </button>
         </div>

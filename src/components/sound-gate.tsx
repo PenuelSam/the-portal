@@ -121,7 +121,7 @@ export default function SoundGate({
         {/* ✦ Center Content */}
         <div className="relative z-[10] flex flex-col items-center justify-center text-center px-6 mt-10">
           {/* Subtle Circular Glow */}
-          <div
+          {/* <div
             className="absolute inset-0 flex items-center justify-center"
             style={{ zIndex: -1 }}
           >
@@ -136,14 +136,16 @@ export default function SoundGate({
                 opacity: 0.20,
               }}
             />
-          </div>
+          </div> */}
 
-          <p className="text-[var(--bone)] font-HaasGrotDisp2 text-[clamp(14px,5vw,16px)] opacity-70 italic">
-            Starring You
-          </p>
-          <h1 className="text-[var(--bone)] font-HaasGrotDisp2 text-[clamp(18px,5vw,22px)] mb-8 tracking-tight">
+         
+          <h1 className="text-[var(--bone)] font-HaasGrotDisp2 italic text-[clamp(14px,5vw,16px)]  tracking-tight  ">
             A Digital Gateway into the Saint Moriartyy World
           </h1>
+
+           <p className="text-[var(--bone)] font-HaasGrotDisp2 text-[clamp(14px,5vw,16px)] opacity-70 italic mb-8">
+            Swipe the knob to enable sound
+          </p>
 
           {/* ✦ Knob */}
           <div className="flex flex-col items-center gap-8">
@@ -160,7 +162,7 @@ export default function SoundGate({
               }}
               className="w-[60px] h-[60px] border-2 border-[var(--bone)] rounded-full cursor-pointer flex items-center justify-center text-[var(--bone)] text-2xl font-bold select-none shadow-lg"
             >
-              →
+            <p className="w-5 h-5 bg-white rounded-full"></p> 
             </div>
 
             {/* Sound Status */}
@@ -170,10 +172,10 @@ export default function SoundGate({
           </div>
         </div>
 
-        <div className="absolute bottom-25 text-[16px] flex flex-col items-center text-[var(--bone)] opacity-50 font-HaasGrotDisp2">
+        {/* <div className="absolute bottom-25 text-[16px] flex flex-col items-center text-[var(--bone)] opacity-50 font-HaasGrotDisp2">
           <p>Swipe arrow to enable sound</p> 
           <p>Tap to open without sound</p> 
-        </div>
+        </div> */}
       </div>
     </>
   );

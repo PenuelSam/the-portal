@@ -3,6 +3,8 @@ import { gsap, ScrollTrigger } from "@/lib/animations/gsap-setup";
 import { useEffect, useRef, useState } from "react";
 import FormModal from "./form-modal";
 import WelcomeModal from "./welcome-modal";
+import { HiBellAlert } from "react-icons/hi2";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -164,13 +166,14 @@ export default function Scene3() {
         />
 
         {/* ✦ TITLE */}
-        <div className="relative top-32 text-center flex flex-col gap-2 z-[2]">
+        <div className="relative top-40 text-center flex flex-col gap-2 z-[2]">
           <h2 className="text-[clamp(24px,6vw,48px)] font-HaasGrotDisp text-[var(--bone)]">
-            Coming Soon...
+            Upcoming Collections...
           </h2>
-          <p className="text-[clamp(16px,6vw,18px)] w-[300px] leading-[1.2] font-HaasGrotDisp2 text-[var(--bone)]">
+          {/* <p className="text-[clamp(16px,6vw,18px)] w-[300px] leading-[1.2] font-HaasGrotDisp2 text-[var(--bone)]">
             We don’t release clothes, we release stories. Each drop is a new chapter in our world.
-          </p>
+          </p> */}
+          
         </div>
 
         {/* ✦ CARDS */}
@@ -181,7 +184,7 @@ export default function Scene3() {
               ref={(el) => {cardsRef.current[i] = el}}
               className="absolute w-[85vw] sm:w-[320px] max-w-[400px] h-[400px] flex flex-col justify-center p-6 text-center opacity-0"
             >
-              <h3 className="font-HaasGrotDisp2 text-[var(--bone)] text-[clamp(25px,6vw,40px)] mb-3 tracking-tighter leading-none">
+              <h3 className="font-HaasGrotDisp text-[var(--bone)] text-[clamp(25px,6vw,40px)] mb-3 tracking-tighter leading-none">
                 {card.title}
               </h3>
               <p className="text-[var(--bone)] text-[clamp(18px,4vw,20px)] font-HaasGrotDisp2 leading-snug lowercase">
@@ -195,12 +198,10 @@ export default function Scene3() {
         <div className="relative bottom-32 z-[2]">
           <button
             onClick={handleCTA}
-            className="relative px-4 py-3 rounded-full bg-[var(--bone)] text-[var(--cherry)] text-lg font-HaasGrotDisp2 border-2 border-[var(--bone)] hover:bg-transparent hover:text-[var(--bone)] transition-all duration-300 flex items-center justify-center "
+            className="relative px-4 py-3 rounded-lg bg-[var(--bone)] text-[var(--cherry)] text-lg font-HaasGrotDisp2 hover:bg-transparent hover:text-[var(--bone)] transition-all duration-300 flex items-center justify-center "
           >
-            <div ref={textWrapperRef} className="flex items-center gap-3 transition-[gap] font-HaasGrotDisp ">
-              <span>Come</span>
-              <div ref={lineRef} className="w-5 h-[1px] bg-[var(--cherry)]"></div>
-              <span>Closer</span>
+            <div ref={textWrapperRef} className="flex items-center  font-HaasGrotDisp gap-2 transition-[gap]">
+              <span>Notify Me</span><HiBellAlert size={18} />
             </div>
           </button>
         </div>
