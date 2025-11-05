@@ -24,17 +24,19 @@ export default function Home() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  /** 🪄 Always show modal once per load (with 2–3s delay + fade-in) */
+  /** 🪄 Start modal timer ONLY after user passes SoundGate */
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!modalDismissed) {
-        setShowEntryModal(true);
-      }
-    }, 5000); // 5s delay
-    return () => clearTimeout(timer);
-  }, [modalDismissed]);
+    if (soundEnabled) {
+      const timer = setTimeout(() => {
+        if (!modalDismissed) {
+          setShowEntryModal(true);
+        }
+      }, 3000); // 
+      return () => clearTimeout(timer);
+    }
+  }, [soundEnabled, modalDismissed]);
 
-  /** 🚫 Disable background scroll when modal is open */
+  /**  Disable background scroll when modal is open */
   useEffect(() => {
     if (showEntryModal) {
       document.body.style.overflow = "hidden";
